@@ -1,4 +1,4 @@
-import URLShortenForm from "./components/urls/url-shortener-form";
+import URLShortenForm from "../components/urls/url-shortener-form";
 
 export default function Home() {
   return (
