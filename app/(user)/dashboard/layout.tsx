@@ -1,4 +1,4 @@
-
+import { Header } from "@/components/layout/header";
 import { auth } from "@/server/auth";
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";

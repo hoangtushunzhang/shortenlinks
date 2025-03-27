@@ -1,4 +1,4 @@
-import UrlShortenerForm from "@/components/urls/url-shortener-form";
+
 import {
     Card,
     CardContent,
@@ -6,6 +6,7 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card";
+import { UrlShortenerForm } from "@/components/urls/url-shortener-form";
 
   import { UserUrlsTable } from "@/components/urls/user-urls-table";
   import { getUserUrls } from "@/server/actions/urls/get-user-urls";
