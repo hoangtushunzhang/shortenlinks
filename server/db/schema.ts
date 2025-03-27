@@ -1,6 +1,6 @@
 
 import { relations } from "drizzle-orm";
-import { integer, pgEnum, pgTable, primaryKey, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { boolean, integer, pgEnum, pgTable, primaryKey, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 import type { AdapterAccount } from "next-auth/adapters"
 
 // Define  user roles enum
@@ -83,6 +83,8 @@ export const urls = pgTable("urls", {
     updatedAt: timestamp("updated_at").notNull().defaultNow(),
     clicks: integer("clicks").default(0).notNull(),
     userId: varchar("user_id", { length: 255 }).references(() => users.id, { onDelete: "set null" }),
+    flagged: boolean("flagged").default(false).notNull(),
+    flagReason: text("flag_reason"),
 });
 
 export const usersRelations = relations(users, (
@@ -94,7 +96,7 @@ export const usersRelations = relations(users, (
 }
 ))
 
-export const urlsRelations = relations(urls, ({one}) => ({
+export const urlsRelations = relations(urls, ({ one }) => ({
     user: one(users, {
         fields: [urls.userId],
         references: [users.id]

@@ -3,13 +3,13 @@ import { z } from 'zod';
 export const UrlSchema = z.object({
     url: z.string().url("Please enter a valid URL"),
     customCode: z
-    .string()
-    .max(20, "Custom code must be less than 255 characters")
-    .regex(/^[a-zA-Z0-9_-]+$/, "Custom code must be alphanumeric or hyphen")
-    .optional()
-    .or(z.literal(""))
-    .nullable()
-    .transform((val) => (val === null || val === "" ? undefined : val)),
+        .string()
+        .max(20, "Custom code must be less than 255 characters")
+        .regex(/^[a-zA-Z0-9_-]+$/, "Custom code must be alphanumeric or hyphen")
+        .optional()
+        .or(z.literal(""))
+        .nullable()
+        .transform((val) => (val === null || val === "" ? undefined : val)),
 })
 
 export type UrlFormData = z.infer<typeof UrlSchema>
@@ -25,6 +25,7 @@ export type Url = {
     id: number;
     originalUrl: string;
     shortCode: string;
-    createdAt: Date;
+    createdAt: string;
+    updatedAt: string;
     clicks: number;
 }
