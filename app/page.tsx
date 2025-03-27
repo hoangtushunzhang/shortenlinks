@@ -1,4 +1,4 @@
-import URLShortenForm from "../components/urls/url-shortener-form";
+import { UrlShortenerForm } from "@/components/urls/url-shortener-form";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
           className="text-lg text-muted-foreground mb-8
          max-w-2xl mx-auto"
         >{`Paste your long URL and get a shortened link. It's free and easy to use.`}</p>
-        <URLShortenForm />
+        <UrlShortenerForm />
       </div>
     </div>
   );
